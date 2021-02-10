@@ -1,29 +1,20 @@
-#include<time.h>
-#include<stdlib.h>
-#include<stdio.h>
-int main(void)
-{
-	srand(time(NULL)); //난수초기화 재실행시 같은거안나오게
-	 //random 0~n
-	int size = 0;
-	
-	printf("n의 크기를 입력하세요: ");
-	scanf_s("%d", &size);
-	int** arr = (int**)malloc(sizeof(int*) * size);//malloc은 void반환형 int* 형변환
-	int i = 0;
-	int j = 0;
-
-	arr[i][j] = (rand() % 100) + 1;
-
-	for (i = 0; i < size; i++)
-	{
-		for (j = 0; j < size; j++)
-			printf("%d", arr[i][j]);
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+void main() { //malloc이 void반환형이라서?
+	srand(time(NULL));
+	int n;
+	printf("정수를 입력하세요: ");
+	scanf_s("%d", &n);
+	int** arr = (int**)malloc(sizeof(int*) * n); //여기서부터
+	for (int i = 0; i < n; i++)
+		arr[i] = (int*)malloc(sizeof(int) * n);//여기까지가 2차원 배열 동적할당임
+	for (int i = 0; i < n; i++)
+		for (int j = 0; j < n; j++)
+			arr[i][j] = (rand() % 100) + 1;
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++)
+			printf("%d ", arr[i][j]);
 		printf("\n");
 	}
-	printf("\n");
-
-
-	free(arr);
-
 }
