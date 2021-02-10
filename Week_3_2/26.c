@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 void main() { //malloc이 void반환형이라서?
-	srand(time(NULL));
+	srand(time(NULL)); //난수 겹치지 
 	int n;
 	printf("정수를 입력하세요: ");
 	scanf_s("%d", &n);
