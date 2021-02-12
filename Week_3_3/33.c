@@ -12,7 +12,7 @@ int main()
 	for (int i = 0; i < 10; i++)
 	{
 		printf("이름 : \n");
-		scanf_s("%s", people[i].name);  //에러에러에러!!!! 
+		scanf_s("%s", people[i].name);  //에러에러에러!!!!다시하기
 		printf("전화번호 :");
 		scanf_s("%s", people[i].number);
 	}
